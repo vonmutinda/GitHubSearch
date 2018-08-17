@@ -13,11 +13,11 @@ export class AppComponent {
 
   ngOnInit(){
 
-    // this.http.get(this.apiUrl+'/users/'+'vonmutinda'+'/repos').subscribe(
-    //   data =>{
-    //     console.log(data)
-    //   }
-    // )
+    this.http.get(this.apiUrl+'/users/'+'vonmutinda').subscribe(
+      data =>{
+        console.log(data)
+      }
+    )
   }
   constructor(private http:HttpClient){}
 }
