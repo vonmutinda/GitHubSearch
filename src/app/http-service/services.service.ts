@@ -10,39 +10,53 @@ import { resolve, reject } from '../../../node_modules/@types/q';
 })
 export class ServicesService {
 
-  key:string = 'envorinment.key'
-  apiUrl:string = 'environment.apiUrl'
+  //PROPERTIES
+  key:string = environment.access_token
+  apiUrl:string = environment.apiUrl
   user:User
   repos:Repo
 
   user$
 
-  dataRequest(user){
-    interface expected{
 
-    }
-
-    let promise = new Promise(
-      (resolve,reject)=>{
-        this.http.get(this.apiUrl+user+this.key).toPromise().then(
-          data=>{
-            this.user$ = data
-            console.log(data)
-
-            resolve()
-          }
-        )
-      }
-    )
-    return promise
-  }
-
+  // CONSTRUCTOR
   constructor(private http:HttpClient) {
     this.user = new User( "","","","",new Date(),0,0,0,0 );
     this.repos = new Repo('',0,0);
    }
 
 
+  // METHODS
+  userRequested(user){
 
+    // interface expected{
+    //    image:any,
+    //    name:string,
+    //    email:string,
+    //    location:string,
+    //    memberSince:Date,
+    //    repos:number,
+    //    gists:number,
+    //    followers:number,
+    //    following:number
+    // }
 
+    let promise = new Promise(
+      (resolve,reject)=>{
+        this.http.get(this.apiUrl+user+this.key).toPromise().then(
+          data=>{
+            this.user$ = data
+            console.log(this.user$)
+            // console.log(data[1].owner.login)
+
+            resolve();
+          },
+          error=>{
+            console.log(error)
+          }
+        )
+      }
+    )
+    return promise
+  }
 }
