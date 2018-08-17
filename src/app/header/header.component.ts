@@ -10,10 +10,11 @@ import { request } from 'https';
 export class HeaderComponent implements OnInit {
 
   ask:ServicesService
-  
+
 
   getUsers(key){
     this.request.userRequested(key.value);
+    this.request.reposRequested(key.value)
     console.log(key.value)
   }
 

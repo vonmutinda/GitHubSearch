@@ -29,25 +29,79 @@ export class ServicesService {
   // METHODS
   userRequested(user){
 
-    // interface expected{
-    //    image:any,
-    //    name:string,
-    //    email:string,
-    //    location:string,
-    //    memberSince:Date,
-    //    repos:number,
-    //    gists:number,
-    //    followers:number,
-    //    following:number
-    // }
+    interface expected{
+       image:any,
+       name:string,
+       email:string,
+       location:string,
+       memberSince:Date,
+       repos:number,
+       gists:number,
+       followers:number,
+       following:number
+    }
 
     let promise = new Promise(
       (resolve,reject)=>{
-        this.http.get(this.apiUrl+user+this.key).toPromise().then(
+        this.http.get<expected>(this.apiUrl+user+this.key).toPromise().then(
           data=>{
-            this.user$ = data
-            console.log(this.user$)
-            // console.log(data[1].owner.login)
+            this.user = new User(
+              data.avatar_url,
+              data.login,
+              data.email,
+              data.location,
+              data.created_at,
+              data.public_repos,
+              data.public_gists,
+              data.followers,
+              data.following)
+
+            console.log(this.user)
+
+            resolve();
+          },
+          error=>{
+            console.log(error)
+          }
+        )
+      }
+    )
+    return promise
+  }
+
+
+
+
+  reposRequested(user){
+
+    interface expected{
+       image:any,
+       name:string,
+       email:string,
+       location:string,
+       memberSince:Date,
+       repos:number,
+       gists:number,
+       followers:number,
+       following:number
+    }
+
+    let promise = new Promise(
+      (resolve,reject)=>{
+        this.http.get<expected>(this.apiUrl+user+this.key).toPromise().then(
+          data=>{
+            this.user = new User(
+              data.avatar_url,
+              data.login,
+              data.email,
+              data.location,
+              data.created_at,
+              data.public_repos,
+              data.public_gists,
+              data.followers,
+              data.following)
+
+            console.log(this.user)
 
             resolve();
           },
