@@ -30,13 +30,13 @@ export class ServicesService {
   userRequested(user){
 
     interface expected{
-       image:any,
-       name:string,
+      avatar_url:any,
+      login:string,
        email:string,
        location:string,
-       memberSince:Date,
-       repos:number,
-       gists:number,
+       created_at:Date,
+       public_repos:number,
+       public_gists:number,
        followers:number,
        following:number
     }
@@ -71,37 +71,21 @@ export class ServicesService {
 
 
 
-
+  // request for repos
   reposRequested(user){
 
     interface expected{
-       image:any,
        name:string,
-       email:string,
-       location:string,
-       memberSince:Date,
-       repos:number,
-       gists:number,
-       followers:number,
-       following:number
+       forks:number,
+       watcher:number
     }
 
     let promise = new Promise(
       (resolve,reject)=>{
         this.http.get<expected>(this.apiUrl+user+this.key).toPromise().then(
           data=>{
-            this.user = new User(
-              data.avatar_url,
-              data.login,
-              data.email,
-              data.location,
-              data.created_at,
-              data.public_repos,
-              data.public_gists,
-              data.followers,
-              data.following)
-
-            console.log(this.user)
+            this.repos = new Repo('',0,0)
+            console.log(this.repos)
 
             resolve();
           },

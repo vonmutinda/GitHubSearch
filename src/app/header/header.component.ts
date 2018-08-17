@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   getUsers(key){
     this.request.userRequested(key.value);
-    this.request.reposRequested(key.value)
+    // this.request.reposRequested(key.value)
     console.log(key.value)
   }
 
