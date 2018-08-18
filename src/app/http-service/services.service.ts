@@ -14,15 +14,14 @@ export class ServicesService {
   key:string = environment.access_token
   apiUrl:string = environment.apiUrl
   user:User
-  repos:Repo
+  repos:Repo[]
+  repo
 
   user$
 
 
   // CONSTRUCTOR
   constructor(private http:HttpClient) {
-    this.user = new User( "","","","",new Date(),0,0,0,0 );
-    this.repos = new Repo('',0,0);
    }
 
 
@@ -82,10 +81,15 @@ export class ServicesService {
 
     let promise = new Promise(
       (resolve,reject)=>{
-        this.http.get<expected>(this.apiUrl+user+this.key).toPromise().then(
+        this.http.get(this.apiUrl+user+'/repos'+this.key).toPromise().then(
           data=>{
-            this.repos = new Repo('',0,0)
-            console.log(this.repos)
+            // console.log(data[0])
+            for(let i = 0 ; i<=30 ; i++){
+              this.repos.push(this.repo = new Repo(data[i].name , data[i].forks, data[i].watcher))
+              // console.log(data[i])
+              console.log(this.repos)
+            }
+            // console.log(this.repos)
 
             resolve();
           },
