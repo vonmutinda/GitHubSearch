@@ -43,7 +43,6 @@
               <li class="list-group-item"> Username : {{request.user.name}} </li>
               <li class="list-group-item"> Location : {{request.user.location}} </li>
               <li class="list-group-item"> Email : {{request.user.email}} </li>
-              <li class="list-group-item"> Email : {{request.user.memberSince}} </li>
             </ul>
             <div class="card-body">
               <a href="#" class="card-link">
@@ -57,21 +56,25 @@
               </a>
             </div>
             <div class="card-footer text-muted">
-              2 days ago
+                {{request.user.memberSince}} {{request.user.memberSince|date}}
             </div>
           </div>
   </div>
 
-    <div *ngFor='let repo of repo' class="col-md-8">
-        <ul class="list-group">
+    <div  class="col-md-8">
+        <a href="#" class="list-group-item list-group-item-action active">
+            {{request.user.name}} Repos
+          </a>
+        <ul style='list-style: none' *ngFor='let repo of request.repos$ ; let i = index' class="list-group">
             <li>
-                <a href="#" class="list-group-item list-group-item-action active">
+                <!-- <a href="#" class="list-group-item list-group-item-action active">
                     {{request.user.name}} Repos
-                  </a>
+                  </a> -->
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              Cras justo odio
-              <span class="badge badge-primary badge-pill">14</span>
+              {{i+1}} . {{request.repos$[i].name}}
+              <span class="badge badge-primary badge-pill">{{request.repos$[i].watchers}}watchers | {{request.repos$[i].forks}} forks</span>
+              <!-- <span class="badge badge-primary badge-pill">{{request.repos$[i].watchers}}watchers</span> -->
             </li>
           </ul>
     </div>
