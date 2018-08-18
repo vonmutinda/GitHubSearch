@@ -14,10 +14,9 @@ export class ServicesService {
   key:string = environment.access_token
   apiUrl:string = environment.apiUrl
   user:User
-  repos:Repo[]
-  repo
+  // repos:Repo[]
 
-  user$
+  repos$
 
 
   // CONSTRUCTOR
@@ -35,7 +34,6 @@ export class ServicesService {
        location:string,
        created_at:Date,
        public_repos:number,
-       public_gists:number,
        followers:number,
        following:number
     }
@@ -51,7 +49,6 @@ export class ServicesService {
               data.location,
               data.created_at,
               data.public_repos,
-              data.public_gists,
               data.followers,
               data.following)
 
@@ -84,12 +81,15 @@ export class ServicesService {
         this.http.get(this.apiUrl+user+'/repos'+this.key).toPromise().then(
           data=>{
             // console.log(data[0])
-            for(let i = 0 ; i<=30 ; i++){
-              this.repos.push(this.repo = new Repo(data[i].name , data[i].forks, data[i].watcher))
-              // console.log(data[i])
-              console.log(this.repos)
-            }
+            // for(let i = 0 ; i<=30 ; i++){
+            //   this.repos.push(this.repo = new Repo(data[i].name , data[i].forks, data[i].watcher))
+            //   // console.log(data[i])
+            //   console.log(this.repos)
+            // }
             // console.log(this.repos)
+
+            this.repos$ = data
+            console.log(this.repos$)
 
             resolve();
           },

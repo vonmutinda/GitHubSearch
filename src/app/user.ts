@@ -6,7 +6,6 @@ export class User {
     public location:string,
     public memberSince:Date,
     public repos:number,
-    public gists:number,
     public followers:number,
     public following:number
   ){}

@@ -33,7 +33,7 @@
   <div class="col-md-4">
         <div class="card mb-3">
             <h3 class="card-header"> {{ request.user.name }} </h3>
-            <img style="height: 200px; width: 100%; display: block;" src="{{request.user.image}}" alt="Card image">
+            <img style="height: 30%; width: auto; display: block;" src="{{request.user.image}}" alt="Card image">
 
             <div class="card-body">
                 <button type="button" class="btn btn-outline-success">view profile</button>
@@ -43,13 +43,18 @@
               <li class="list-group-item"> Username : {{request.user.name}} </li>
               <li class="list-group-item"> Location : {{request.user.location}} </li>
               <li class="list-group-item"> Email : {{request.user.email}} </li>
+              <li class="list-group-item"> Email : {{request.user.memberSince}} </li>
             </ul>
             <div class="card-body">
               <a href="#" class="card-link">
-                  
+                  <button type="button" class="btn btn-outline-info">{{request.user.followers}} followers</button>
               </a>
-              <a href="#" class="card-link">Another link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a href="#" class="card-link">
+                  <button type="button" class="btn btn-outline-info">{{request.user.following}} following</button>
+              </a>
+              <a href="#" class="card-link">
+                  <button type="button" class="btn btn-outline-info">{{request.user.repos}} Repos</button>
+              </a>
             </div>
             <div class="card-footer text-muted">
               2 days ago
@@ -57,24 +62,16 @@
           </div>
   </div>
 
-    <div class="col-md-8">
+    <div *ngFor='let repo of repo' class="col-md-8">
         <ul class="list-group">
             <li>
                 <a href="#" class="list-group-item list-group-item-action active">
-                    Cras justo odio
+                    {{request.user.name}} Repos
                   </a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Cras justo odio
               <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Dapibus ac facilisis in
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Morbi leo risus
-              <span class="badge badge-primary badge-pill">1</span>
             </li>
           </ul>
     </div>
