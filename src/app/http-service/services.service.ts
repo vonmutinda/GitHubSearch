@@ -30,12 +30,13 @@ export class ServicesService {
     interface expected{
       avatar_url:any,
       login:string,
-       email:string,
-       location:string,
-       created_at:Date,
-       public_repos:number,
-       followers:number,
-       following:number
+      email:string,
+      location:string,
+      created_at:Date,
+      public_repos:number,
+      followers:number,
+      following:number,
+      html_url:string
     }
 
     let promise = new Promise(
@@ -50,9 +51,12 @@ export class ServicesService {
               data.created_at,
               data.public_repos,
               data.followers,
-              data.following)
+              data.following,
+              data.html_url
+            )
 
-            console.log(this.user)
+            // console.log(this.user)
+            console.log(data)
 
             resolve();
           },

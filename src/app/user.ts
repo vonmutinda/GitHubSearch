@@ -7,6 +7,7 @@ export class User {
     public memberSince:Date,
     public repos:number,
     public followers:number,
-    public following:number
+    public following:number,
+    public url:string
   ){}
 }
