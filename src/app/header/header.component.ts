@@ -13,8 +13,12 @@ export class HeaderComponent implements OnInit {
   constructor(public request:ServicesService) { }
 
       getUsers($key){
-        this.request.userRequested($key.target.value);
-        this.request.reposRequested($key.target.value)
+        if($key.target.value==''){
+          
+        }else{
+          this.request.userRequested($key.target.value);
+          this.request.reposRequested($key.target.value)
+        }
 
 
         console.log($key.target.value)
