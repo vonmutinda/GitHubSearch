@@ -11,7 +11,7 @@ import { resolve, reject } from '../../../node_modules/@types/q';
 export class ServicesService {
 
   //PROPERTIES
-  key:string = environment.access_token
+  key:string = environment.accessToken
   apiUrl:string = environment.apiUrl
   user:User
 
