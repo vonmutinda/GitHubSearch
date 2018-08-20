@@ -4,18 +4,19 @@ import { ServicesService } from '../http-service/services.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  providers:[ServicesService]
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  getUsers(key){
-    this.request.userRequested(key.value);
-    this.request.reposRequested(key.value)
-    console.log(key.value)
-  }
+
 
   constructor(public request:ServicesService) { }
+
+      getUsers($key){
+        this.request.userRequested($key.target.value);
+        this.request.reposRequested($key.target.value)
+        console.log($key.target.value)
+      }
 
   ngOnInit() {
   }
