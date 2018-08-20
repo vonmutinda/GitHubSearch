@@ -4,7 +4,8 @@ import { ServicesService } from '../http-service/services.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers:[ServicesService]
 })
 export class HeaderComponent implements OnInit {
 
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
       getUsers($key){
         if($key.target.value==''){
-          
+
         }else{
           this.request.userRequested($key.target.value);
           this.request.reposRequested($key.target.value)
