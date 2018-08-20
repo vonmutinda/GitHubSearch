@@ -50,7 +50,8 @@
                 </a>
               </div>
               <div class="card-footer text-muted">
-                  {{request.user.memberSince}} {{request.user.memberSince|date}}
+                  {{request.user.memberSince}}
+                  <span class="badge badge-dark"> {{request.user.memberSince|date}} days ago  </span>
               </div>
             </div>
     </div>

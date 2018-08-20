@@ -1,27 +1,25 @@
-# GitHubSearch
+# GitHubSearch Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+This Project is build in Angular 6 . Implements the GitHub API to search Users and repositories . 
 
-## Development server
+## Live Site
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
++ follow this link to view the live site `https://vonmutinda.github.io/GitHubSearch` . 
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Angular 6
+2. Bootswatch Theme
+3. CSS
+4. GitHub API
 
-## Build
+## Contribute to Development
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Clone this project using this link `https://github.com/vonmutinda/GitHubSearch.git` . Create a branch `git branch YOUR_BRANCH` then  push .
 
-## Running unit tests
+## About Developer
++ A intermediate developer in `Angular 6`  , `HTML 5` , `CSS3` , `Jquery `
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ ### Contact
+  1. GITHUB :`https://github.com/vonmutinda`
+  2. EMAIL  : `maxwellmutinda@outlook.com`

@@ -6,7 +6,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DateCountPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return null;
+    const secondsDay = 60*60*24 ;
+
+    let today = new Date();
+    let dateCreated = value;
+
+     
+    return days;
   }
 
 }
