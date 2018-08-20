@@ -15,10 +15,14 @@ export class HeaderComponent implements OnInit {
       getUsers($key){
         this.request.userRequested($key.target.value);
         this.request.reposRequested($key.target.value)
+
+
         console.log($key.target.value)
       }
 
   ngOnInit() {
+    this.request.userRequested('vonmutinda');
+    this.request.reposRequested('vonmutinda')
   }
 
 }

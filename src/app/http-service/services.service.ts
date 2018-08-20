@@ -14,9 +14,8 @@ export class ServicesService {
   key:string = environment.access_token
   apiUrl:string = environment.apiUrl
   user:User
-  // repos:Repo[]
 
-  repos$
+  repos$ //repos object
 
 
   // CONSTRUCTOR

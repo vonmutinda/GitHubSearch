@@ -12,7 +12,6 @@
     <form class="form-inline my-2 my-lg-0">
 
       <input (keyup)='getUsers($event)' #keyword class="form-control mr-sm-2" type="text" placeholder="Search users , repos . . ." name='keyword'>
-      <!-- <button  (keyup)='getUsers($event)' class="btn btn-secondary my-2 my-sm-0" type="submit">Search users , repos . . .</button> -->
 
     </form>
   </div>
@@ -51,7 +50,7 @@
               </div>
               <div class="card-footer text-muted">
                   {{request.user.memberSince}}
-                  <span class="badge badge-dark"> {{request.user.memberSince|date}} days ago  </span>
+                  <span class="badge badge-dark"> {{request.user.memberSince|dateCount}} days ago  </span>
               </div>
             </div>
     </div>
